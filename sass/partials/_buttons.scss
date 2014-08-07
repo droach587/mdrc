@@ -1,0 +1,23 @@
+//  ==========================================================================
+//  Buttons Partials
+//  ==========================================================================
+.btn{
+	@include border-radius($base-border-radius);
+	display: inline-block;
+	padding: 8px 12px 8px 12px;
+	background: #ccc;
+	font: normal 13px $font-family-base;
+	cursor: pointer;
+	margin: 0 2px 0 0;
+	@include transition-duration(.5s);
+	@include transition-property(all);
+}
+
+.btn--grey{
+	background: $panelSubGrey;
+	&:hover,
+	&.active{
+		background: $brandOrange;
+		color: white;
+	}
+}

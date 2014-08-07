@@ -1,0 +1,83 @@
+//  ==========================================================================
+//  Misc Article Controls and Widgets
+//  ==========================================================================
+%float-left{
+	float: left;
+	position: relative;
+	display: block;
+}
+.paginator{
+	margin: 0;
+	padding: 0;
+	li{
+		@extend %float-left;
+		padding: 0 5px 0 5px;
+		border-left: 1px solid #bbb;
+		@include box-sizing(border-box);
+
+		a{
+			font: normal 13px $font-family-base;
+			color: $brandGrey;
+			display: block;
+			@include transition-duration(.5s);
+			@include transition-property(all);
+			&:hover,
+			&.active{
+				color: $brandOrange;
+			}
+		}
+		&.previous{
+			border:none;
+			a{
+				&::before{
+					content: '';
+					display: inline-block;
+					vertical-align: middle;
+					margin: -1px 5px 0 0;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 4px 8px 4px 0;
+					border-color: transparent $brandGrey transparent transparent;
+					@include transition-duration(.5s);
+					@include transition-property(all);
+				}
+				&:hover{
+					&::before{ border-right-color: $brandOrange; }
+				}
+			}
+		}
+		&.previous + li{
+			border: none;
+		}
+		&.next{
+			a{
+				&::after{
+					content: '';
+					display: inline-block;
+					vertical-align: middle;
+					margin: -1px 0 0 5px;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 4px 0 4px 8px;
+					border-color: transparent transparent transparent $brandGrey;
+					@include transition-duration(.5s);
+					@include transition-property(all);
+				}
+				&:hover{
+					&::after{ border-left-color: $brandOrange; }
+				}
+			}
+		}
+	}
+	li + .next{
+		border-left: navy;
+	}
+}
+
+.paginator__projects{
+	margin-top: 10px;
+	margin-right: -10px;
+	float: right;
+}

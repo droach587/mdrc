@@ -1,0 +1,33 @@
+//  ==========================================================================
+//  Forms Partial
+//  ==========================================================================
+input, textarea, button{
+	outline: none;
+	-moz-outline: none;
+}
+
+input{
+	padding: 5px;
+	text-align: left;
+	border: none;
+	font: normal $font-size-base $font-family-base;
+	color: $brandGrey;
+	background: $inputBg;
+	@include box-shadow(inset 0px 0px 2px lighten($panelDarkGrey,50%));
+	@include box-sizing(border-box);
+}
+
+button, 
+input[type="submit"]{
+	border: none;
+	background: $panelGrey;
+	font: normal $font-size-base $font-family-base;
+	padding: 5px;
+	@include transition-property(all);
+	@include transition-duration(.5s);
+	@include box-sizing(border-box);
+}
+
+form{
+	display: inline-block;
+}

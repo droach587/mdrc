@@ -1,0 +1,72 @@
+//  ==========================================================================
+//  Center Container Grid Mixin
+//  ==========================================================================
+@mixin centerContainer($width, $minWidth){
+	float: left;
+	position: relative;
+	display: block;
+	width: #{$width}px;
+	min-width: #{$minWidth}px !important;
+	margin-left: -$width*.5+px;
+	left: 50%;
+}
+
+//  ==========================================================================
+//  Ghost Extensions to Include in Classes
+//  ==========================================================================
+
+%full-width{
+	position: relative;
+	float: left;
+	display: block;
+	width: 100%;
+}
+
+%float-left{
+	float: left;
+	position: relative;
+	display: block;
+}
+
+//  ==========================================================================
+//  Standard Grid
+//  ==========================================================================
+
+.span-6{
+	padding: 0 10px;
+	@include box-sizing(border-box);
+	@include centerContainer($colSpan,200);
+	&.span-6__full-bleed{
+		padding: 0;
+	}
+}
+
+.span-2{
+	@extend %float-left;
+	width: 314px;
+}
+.span-4{
+	@extend %float-left;
+	width: 626px;
+}
+
+.col-6{
+	width: #{(100/6)+'%'};
+	@extend %float-left;
+	@include box-sizing(border-box);
+}
+
+.col-1-5{
+	width: #{(100/5)+'%'};
+	@extend %float-left;
+	@include box-sizing(border-box);
+}
+
+
+//  ==========================================================================
+//  Row
+//  ==========================================================================
+
+.row{
+	@extend %full-width;
+}

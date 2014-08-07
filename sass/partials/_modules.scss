@@ -1,0 +1,485 @@
+%full-width{
+	float:left;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+%float-left{
+	float: left;
+	position: relative;
+	display: block;
+}
+
+%float-right{
+	float: right;
+	display: block;
+	position: relative;
+}
+
+.clear-left{
+	clear: left;
+}
+
+
+//  ==========================================================================
+//  Primary Header
+//  ==========================================================================
+
+.primary--header{
+	padding: 10px 0 0 0;
+}
+
+.primary--header_subnav-ul{
+	padding: 0;
+    list-style:none;
+    margin: 0 0 10px 0;
+	float: right;
+    position:relative;
+    z-index:5;
+   
+}
+.primary--header_subnav-ul li{
+    float:left;
+    margin:0 0 0 15px;
+    position:relative;
+    &:hover{
+    	ul{ display: block; right: 0px; }
+	    a{ color: $brandOrange; &::after{border-top-color: $brandOrange;}}
+    }
+}
+.primary--header_subnav-ul a{
+    display:block;
+    padding:5px;
+    font: normal 9px $font-family-base;
+	text-transform: uppercase;
+	color: $brandGrey;
+    text-decoration:none;
+    white-space: nowrap;
+    @include transition-duration(.5s);
+    @include transition-property(all);
+    &.arrow-down{
+    	&::after{
+		    content: '';
+		    display: inline-block;
+		    margin: -3px 0 0 5px;
+		    width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 4px 3px 0 3px;
+			border-color: $brandGrey transparent transparent transparent;
+			vertical-align: middle;
+		}
+    }
+}
+.primary--header_subnav-ul a:hover{
+    color: $brandOrange;
+}
+
+.primary--header_subnav-ul ul{
+	padding: 0px;
+	margin: 0px;
+    list-style:none;
+    position:absolute;
+	display: none;
+	li{ float:none; }
+	a{ white-space:nowrap; }
+}
+
+//  ==========================================================================
+//  Search Form
+//  ==========================================================================
+.primary--header_form{
+	@extend %float-right;
+	margin-top: 30px;
+	button{
+		background: transparent;
+		border: none;
+		position: absolute;
+		right: 2px;
+		top: 1px;
+		color: $brandGrey;
+		background: $panelGrey;
+		max-height: 20px;
+		@include transition-property(all);
+		@include transition-duration(.5s);
+	}
+	input:hover + button{ opacity: 0; }
+}
+//  ==========================================================================
+//  Branding and ID
+//  ==========================================================================
+
+.primary--header_brand-shelf{
+	padding: 0 0 40px 0;
+}
+.primary--header_brand-logo{
+	@extend %float-left;
+	margin: 0;
+	padding: 0 0 0 10px;
+}
+.primary--header_brand-tagline{
+	@extend %float-left;
+	color: $brandGrey;
+	font: normal $font-size-base / #{16px} $font-family-base;
+	letter-spacing: 1px;
+	padding: 32px 0 0 5px;
+	margin: 0;
+}
+
+//  ==========================================================================
+//  Primary Nav
+//  ==========================================================================
+.primary--nav-ul{
+	margin: 0;
+	padding: 0;
+	display: table;
+	height: 100%;
+}
+
+.primary--nav-ul > li{
+	border-right: 1px solid $panelGreyBorder;
+	display: table-cell;
+	height: 100%;
+	float: none;
+	vertical-align: top;
+	&:first-child{
+		border-left: 1px solid $panelGreyBorder;
+	}
+	dl,dt,dd{ padding: 0; margin: 0; }
+	dt{
+		font: bold 21px $font-family-bold;
+		color: $brandBlueDark;
+		@include transition-duration(.5s);
+		@include transition-property(all);
+	}
+	dd{
+		font: normal 11px $font-family-base;
+		color: $brandGrey;
+	}
+	&.teal__nav{
+		dt{ color: $brandTeal;}
+	}
+	&.aqua__nav{
+		dt{ color: $brandAqua;}
+	}
+}
+
+.primary--nav-ul > li > a{
+	padding: #{$colMargin + 'px'};
+	display: table;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	@include transition-duration(.5s);
+	@include transition-property(all);
+	@include box-sizing(border-box);
+	&:hover,
+	&.active{
+		background: $panelGrey;
+		dt{ color: $brandOrange; }
+	}
+	&.active{
+		&::after{
+			content: '';
+			position: absolute;
+			z-index: 99;
+			left: 0px;
+			right: 0px;
+			bottom: -10px;
+			margin: 0 auto 0 auto;
+		    width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 4px 3px 0 3px;
+			border-color: $brandGrey transparent transparent transparent;
+		}
+	}
+}
+
+.nav__secondary-struct{
+	padding: 40px 0 0 0;
+	background: $panelGrey;
+	z-index: 1;
+	li{
+		border-right: 0px;
+		border-left: 1px solid $panelGreyBorder;
+		padding: 0 0 20px 0;
+		&:first-child{ border-left: none; }
+		dt{ color:$brandGrey; font: bold 13px/18px $font-family-base; }
+	}
+	li > a{
+		padding-top: 0px;
+		&.active{
+			&::after{
+				width: 0; 
+				height: 0;
+				position: absolute;
+				bottom: -15px;
+				left: 0px;
+				right: 0px;
+				margin: 0 auto 0 auto;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-top: 20px solid $panelGrey;
+				content: '';
+			}
+		}
+	}
+}
+
+//  ==========================================================================
+//  Newsletter Signup
+//  ==========================================================================
+
+.newsletter--signup{
+	@extend %float-left;
+	border: 1px solid $panelGrey;
+	padding: 10px;
+	background: white;
+	@include box-sizing(border-box);
+	@include box-shadow(0px 0px 10px $panelGrey);
+}
+
+.newsletter--signup_subnav{
+	input{
+		min-width: 200px;
+		margin-bottom: 10px;
+	}
+	button{
+		width: 100%;
+		text-align: center; 
+		&:hover{
+			background: $brandOrange;
+			color: white;
+		}
+	}
+}
+
+
+//  ==========================================================================
+//  Overview
+//  ==========================================================================
+
+.primary--overview{
+	padding: 50px 0 60px 0;
+}
+.primary--overview_article{
+	.title{
+		font: bold 35px $font-family-bold;
+		color: $brandOrange;
+		margin: 0;
+		padding: 0;
+	}
+	.subtitle{
+		font: normal 18px $font-family-base;
+		color: $brandGrey;
+	}
+	.desc{
+		margin: 0;
+		padding: 10px 0 0 0;
+		font: normal 14px/18px $font-family-base;
+		color: $brandSubGrey;
+		max-width: 90%;
+	}
+}
+
+.primary--overview_aside{
+	.aside-heading{
+		font: bold 10px $font-family-bold;
+		color: $brandBlueDark;
+		text-transform: uppercase;
+		padding: 0;
+		margin: 4px 0 0 20px;
+	}
+	ul{
+		padding: 15px 0 0 35px;
+		margin: 0 0 0 0px;
+	}
+	li{
+		color: $brandAqua;
+		font: bold 13px $font-family-bold;
+		max-width: 250px;
+		padding-bottom: 8px;
+		a{ 
+			color: $brandAqua; 
+			@include transition-duration(.5s);
+			@include transition-property(all);
+			&:hover{
+				color: $brandOrange;
+			}
+		}
+	}
+}
+
+//  ==========================================================================
+//  Highlights Well
+//  ==========================================================================
+
+.highlights-well{
+	a{
+		@extend %float-left;
+		margin: 0 0 0 9px;
+		&.first{
+			margin-left: 0;
+		}
+		&:hover{
+			.cta{ color: $brandYellow; }
+			.title { color: $brandAqua; }
+			article { background: black; }
+			.arrow{ background-position: 0px -17px; margin-left: 10px; }
+		}
+	}
+}
+
+.highlights-well__heading{
+	padding-left: 25px;
+	margin: 0 0 20px 0;
+	font: bold 25px $font-family-bold;
+	color: $panelDarkGrey;
+	@include box-sizing(border-box);
+}
+
+.highlights-well__article{
+	background: $panelDarkGrey;
+	padding: 25px;
+	min-height: 357px;
+	@include transition-property(all);
+	@include transition-duration(.5s);
+	@include box-sizing(border-box);
+	.category{
+		color: $brandYellow;
+		padding: 0px;
+		margin: 0px;
+		text-transform: uppercase;
+		font: bold 10px $font-family-bold;
+	}
+	.title{
+		font: normal 20px $font-family-serif;
+		color: white;
+		padding: 0;
+		margin: 5px 0 0 0; 
+	}
+	.body{
+		font: normal 13px/18px $font-family-base;
+		padding: 0;
+		margin: 13px 0 0 0;
+		color: #cccccc;
+	}
+	&:first-child{
+		margin-left: 0px;
+	}
+	.cta{
+		position: absolute;
+		max-width: 80px;
+		bottom: 25px;
+		left: 25px;
+		color: $brandAqua;
+		font: normal 14px $font-family-base;
+		cursor: pointer;
+		span{ @extend %float-left;}
+	}
+	.arrow{
+		float: left;
+		margin: 10px 0 0 0;
+		width: 18px;
+		height: 17px;
+		background: $article-arrows 0px 0px no-repeat;
+		@include transition-duration(.5s);
+		@include transition-property(margin);
+	}
+}
+
+//  ==========================================================================
+//  Projects
+//  ==========================================================================
+
+.projects-well__contain{
+	padding-top: 57px;
+}
+
+.projects-well__articles{
+	@extend %full-width;
+	padding: 10px 0 10px 0;
+	margin: 0px;
+}
+
+.projects-well__article{
+	@extend %full-width;
+	padding: 20px 10px 20px 10px;
+	border-bottom: 1px solid $panelSubGrey;
+	@include box-sizing(border-box);
+	&:first-child{
+		border-top: none;
+	}
+	.title,
+	.title a{
+		padding: 0;
+		margin: 0;
+		font: bold 15px $font-family-bold;
+		color: darken($brandGrey, 20%);
+		text-decoration: none;
+	}
+	.desc{
+		padding: 0;
+		margin: 15px 0 0 0;
+		@extend %full-width;
+		font: normal 12px $font-family-base;
+		color: $brandGrey;
+	}
+	a{
+		color: $brandAqua;
+		font: normal 12px $font-family-base;
+		text-decoration: underline;
+		cursor: pointer;
+		@include transition-duration(.5s);
+		@include transition-property(all);
+		&:hover{
+			color: $brandOrange;
+		}
+	}
+	.cta{
+		@extend %float-left;
+		margin: 10px 0 0 0;
+		text-decoration: none;
+	}
+}
+
+//  ==========================================================================
+//  Primary Footer
+//  ==========================================================================
+
+.primary--footer{
+	margin-top: 50px;
+	background: $panelGrey;
+}
+
+.primary--foter__contain{
+	@extend %full-width;
+	padding: 45px;
+	@include box-sizing(border-box);
+	ul{
+		padding: 0;
+		margin: 0;
+		@extend %float-left;
+		li{
+			@extend %full-width;
+			font: normal 12px/16px $font-family-base;
+			color: $brandGrey;
+		}
+		a{
+			color: $brandGrey;
+			display: block;
+			@include transition-duration(.5s);
+			@include transition-property(all);
+			&:hover{ color: $brandOrange; }
+		}
+		.social{
+			font-size: 30px;
+			padding: 2px;
+			display: inline-block;
+			cursor: pointer;
+			&:hover{ color: $brandOrange; }
+		}
+	}
+}

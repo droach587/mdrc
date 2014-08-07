@@ -1,0 +1,48 @@
+//  ==========================================================================
+//  Font Families and Sizing
+//  ==========================================================================
+
+@include font-face("foundation-icons", font-files("foundation-icons.eot", "foundation-icons.ttf","foundation-icons.woff", "foundation-icons.svg"));
+
+$font-size-base:		12px;
+$font-family-base:		"Myriad Regular", "Myriad Pro Regular", "Arial", "Helvetica", sans-serif;
+$font-family-bold:		"Myriad Pro Bold", "Myriad Bold", "Arial Bold", "Helvetica Bold", sans-serif;
+$font-family-serif:		"Georgia", "Times", serif;
+
+//  ==========================================================================
+//  Colors
+//  ==========================================================================
+
+$brandBlueDark:		#17578b !default;
+$brandAqua:			#4ecbea !default;
+$brandTeal:			#3ecfc6 !default;
+$brandOrange:		#f6831d !default;
+$brandYellow:		#edef1a !default;
+$brandGrey:			#666666 !default;
+$brandSubGrey:		#999999 !default;
+$panelGreyBorder:	#c2c2c2 !default;
+$panelGrey:			#e8e9e9 !default;
+$panelSubGrey:		#dddddd !default;
+$panelDarkGrey:		#2f2a2b !default;
+$inputBg:			#ebebeb !default;
+
+
+//  ==========================================================================
+//  Sprites
+//  ==========================================================================
+
+$article-arrows: 				sprite-map("arrows/*.png");
+
+//  ==========================================================================
+//  Various Config Options
+//  ==========================================================================
+
+$base-border-radius: 5px !default;
+
+//  ==========================================================================
+//  Stanard Grid
+//	PX Values are not required
+//  ==========================================================================
+
+$colSpan:			960;
+$colMargin:			10;
